@@ -48,5 +48,4 @@ class Calories(_rawCalories: List<Int?>) {
         }
         return sum
     }
-
 }

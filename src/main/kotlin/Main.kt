@@ -4,6 +4,7 @@ import utils.readFileAsLinesToListString
 fun main(args: Array<String>) {
     day01()
     day02()
+    day03()
 }
 
 fun day01() {
@@ -25,4 +26,12 @@ fun day02() {
 
     val totalScoreIfXYZAsOutcome = combat.calTotalScoreOfAllRounds(XYZMode.Outcome)
     println("Rock paper scissors (outcome mode) total score is $totalScoreIfXYZAsOutcome")
+}
+
+fun day03() {
+    val rucksackList = readFileAsLinesToListString("/day03_input.txt")
+    val rucksacks = RucksackReorganization(rucksackList)
+    val rucksackPriorities = rucksacks.getRucksackPriorities()
+    val rucksackPrioritiesSum = rucksacks.getRucksackPrioritiesSum(rucksackPriorities)
+    println("The sum of rucksack priorities is $rucksackPrioritiesSum")
 }
