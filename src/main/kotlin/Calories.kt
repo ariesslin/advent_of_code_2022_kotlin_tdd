@@ -1,20 +1,3 @@
-import utils.readFileAsLinesUsingUseLines
-
-fun main(args: Array<String>) {
-    day01()
-}
-
-fun day01() {
-    val rawCalories = readFileAsLinesUsingUseLines("/day01_input.txt")
-    val allElfCalories = Calories(rawCalories)
-    val (elf, elfCalories) = allElfCalories.getMaxCalories()
-    println("Elf $elf is with MAX calories $elfCalories")
-    
-    val topThreeElves = allElfCalories.getTopThreeMaxCalories()
-    val topThreeCaloriesSum = allElfCalories.getCaloriesSum(topThreeElves)
-    println("Top three elves with MAX calories get the sum $topThreeCaloriesSum")
-}
-
 class Calories(_rawCalories: List<Int?>) {
     private val rawCalories = _rawCalories
     private val elfCaloriesCollection = mutableListOf<Pair<Int, Int>>()

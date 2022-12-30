@@ -3,7 +3,7 @@ package utils
 import java.io.File
 import java.nio.file.Paths
 
-fun readFileAsLinesUsingUseLines(fileName: String?): List<Int?> {
+fun readFileAsLinesToListString(fileName: String?): List<String> {
     if (fileName.isNullOrEmpty()) {
         return emptyList()
     }
@@ -11,7 +11,11 @@ fun readFileAsLinesUsingUseLines(fileName: String?): List<Int?> {
     val projectDirAbsolutePath = Paths.get("").toAbsolutePath().toString()
     val resourcesPath = Paths.get(projectDirAbsolutePath, "/src/main/resources")
 
-    val linesOfFileInString = File("$resourcesPath/$fileName").useLines { it.toList() }
+    return File("$resourcesPath/$fileName").useLines { it.toList() }
+}
+
+fun readFileAsLinesToListInt(fileName: String?): List<Int?> {
+    val linesOfFileInString = readFileAsLinesToListString(fileName)
     val linesOfFileInInt = linesOfFileInString.map {
         if (it.isEmpty()) {
             null

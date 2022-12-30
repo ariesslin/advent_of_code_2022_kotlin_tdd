@@ -35,7 +35,7 @@ class CaloriesTest {
     }
 
     @Test
-    internal fun day02TestGetTopThreeElvesWithMaxCalories() {
+    internal fun day01TestGetTopThreeElvesWithMaxCalories() {
         //arrange
         val allElfCalories = Calories(rawCalories)
 
