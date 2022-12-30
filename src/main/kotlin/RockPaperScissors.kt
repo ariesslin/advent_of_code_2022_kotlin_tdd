@@ -87,7 +87,7 @@ class RockPaperScissors(_rawInput: List<String>) {
     }
 
     private fun calcScoreForRound(opponent: ScoreShape, elf: ScoreShape): Int {
-        var combatResult = 0;
+        var combatResult = 0
 
         if (opponent == elf) {
             combatResult = ScoreCombat.DRAW.outcome

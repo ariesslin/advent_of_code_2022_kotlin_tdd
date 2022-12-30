@@ -32,6 +32,10 @@ fun day03() {
     val rucksackList = readFileAsLinesToListString("/day03_input.txt")
     val rucksacks = RucksackReorganization(rucksackList)
     val rucksackPriorities = rucksacks.getRucksackPriorities()
-    val rucksackPrioritiesSum = rucksacks.getRucksackPrioritiesSum(rucksackPriorities)
+    val rucksackPrioritiesSum = rucksacks.getPrioritiesSum(rucksackPriorities)
     println("The sum of rucksack priorities is $rucksackPrioritiesSum")
+
+    val groupBadgePriorities = rucksacks.getGroupBadgePriorities()
+    val groupBadgePrioritiesSum = rucksacks.getPrioritiesSum(groupBadgePriorities)
+    println("The sum of group badge priorities is $groupBadgePrioritiesSum")
 }

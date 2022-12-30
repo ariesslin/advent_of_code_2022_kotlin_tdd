@@ -18,7 +18,7 @@ class RucksackReorganizationTest {
 
         //act
         val rucksackPriorities = rucksacks.getRucksackPriorities()
-        val rucksackPrioritiesSum = rucksacks.getRucksackPrioritiesSum(rucksackPriorities)
+        val rucksackPrioritiesSum = rucksacks.getPrioritiesSum(rucksackPriorities)
 
         //assert
         assertEquals(rucksackPriorities[0], 16)
@@ -29,6 +29,21 @@ class RucksackReorganizationTest {
         assertEquals(rucksackPriorities[5], 19)
 
         assertEquals(rucksackPrioritiesSum, 157)
+    }
 
+    @Test
+    internal fun day03TestGetSumOfPrioritiesOfAllGroupBadges() {
+        //arrange
+        val rucksacks = RucksackReorganization(rucksackList)
+
+        //act
+        val groupBadgePriorities = rucksacks.getGroupBadgePriorities()
+        val groupBadgePrioritiesSum = rucksacks.getPrioritiesSum(groupBadgePriorities)
+
+        //assert
+        assertEquals(groupBadgePriorities[0], 18)
+        assertEquals(groupBadgePriorities[1], 52)
+
+        assertEquals(groupBadgePrioritiesSum, 70)
     }
 }
