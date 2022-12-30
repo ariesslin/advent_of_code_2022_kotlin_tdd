@@ -20,6 +20,9 @@ fun day01() {
 fun day02() {
     val rawCombatInput = readFileAsLinesToListString("/day02_input.txt")
     val combat = RockPaperScissors(rawCombatInput)
-    val totalScore = combat.calTotalScoreOfAllRounds()
-    println("Rock paper scissors total score is $totalScore")
+    val totalScoreIfXYZAsShape = combat.calTotalScoreOfAllRounds(XYZMode.Shape)
+    println("Rock paper scissors (shape mode) total score is $totalScoreIfXYZAsShape")
+
+    val totalScoreIfXYZAsOutcome = combat.calTotalScoreOfAllRounds(XYZMode.Outcome)
+    println("Rock paper scissors (outcome mode) total score is $totalScoreIfXYZAsOutcome")
 }

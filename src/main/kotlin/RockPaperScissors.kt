@@ -10,24 +10,80 @@ enum class ScoreShape(val shapeValue: Int) {
     SCISSORS(3)
 }
 
+enum class XYZMode {
+    Shape,
+    Outcome
+}
+
 class RockPaperScissors(_rawInput: List<String>) {
     private val opponentShapeMap = mapOf('A' to ScoreShape.ROCK, 'B' to ScoreShape.PAPER, 'C' to ScoreShape.SCISSORS)
     private val elfShapeMap = mapOf('X' to ScoreShape.ROCK, 'Y' to ScoreShape.PAPER, 'Z' to ScoreShape.SCISSORS)
+
+    private val elfCombatMap = mapOf('X' to ScoreCombat.LOST, 'Y' to ScoreCombat.DRAW, 'Z' to ScoreCombat.WON)
+
     private val rawInput = _rawInput
 
-    fun calTotalScoreOfAllRounds(): Int {
+    fun calTotalScoreOfAllRounds(mode: XYZMode): Int {
         var totalScore = 0
+        val calcMethod = if (mode == XYZMode.Shape) {
+            ::calcScoreForRoundIfXYZAsShape
+        } else {
+            ::calcScoreForRoundIfXYZAsOutcome
+        }
         for (i in rawInput) {
-            totalScore += calcScoreForRound(i[0], i[2])
+            totalScore += calcMethod(i[0], i[2])
         }
         return totalScore
     }
 
-    private fun calcScoreForRound(opponent: Char, elf: Char): Int {
+    private fun calcScoreForRoundIfXYZAsShape(opponent: Char, elf: Char): Int {
         return calcScoreForRound(
             opponentShapeMap.getOrDefault(opponent, ScoreShape.ROCK),
             elfShapeMap.getOrDefault(elf, ScoreShape.ROCK)
         )
+    }
+
+    private fun calcScoreForRoundIfXYZAsOutcome(opponent: Char, elfResult: Char): Int {
+        if (elfCombatMap[elfResult] == ScoreCombat.DRAW) {
+            return calcScoreForRound(
+                opponentShapeMap.getOrDefault(opponent, ScoreShape.ROCK),
+                opponentShapeMap.getOrDefault(opponent, ScoreShape.ROCK)
+            )
+        } else if (elfCombatMap[elfResult] == ScoreCombat.LOST) {
+            if (opponentShapeMap[opponent] == ScoreShape.ROCK) {
+                return calcScoreForRound(
+                    ScoreShape.ROCK,
+                    ScoreShape.SCISSORS
+                )
+            } else if (opponentShapeMap[opponent] == ScoreShape.PAPER) {
+                return calcScoreForRound(
+                    ScoreShape.PAPER,
+                    ScoreShape.ROCK
+                )
+            } else {
+                return calcScoreForRound(
+                    ScoreShape.SCISSORS,
+                    ScoreShape.PAPER
+                )
+            }
+        } else {
+            if (opponentShapeMap[opponent] == ScoreShape.ROCK) {
+                return calcScoreForRound(
+                    ScoreShape.ROCK,
+                    ScoreShape.PAPER
+                )
+            } else if (opponentShapeMap[opponent] == ScoreShape.PAPER) {
+                return calcScoreForRound(
+                    ScoreShape.PAPER,
+                    ScoreShape.SCISSORS
+                )
+            } else {
+                return calcScoreForRound(
+                    ScoreShape.SCISSORS,
+                    ScoreShape.ROCK
+                )
+            }
+        }
     }
 
     private fun calcScoreForRound(opponent: ScoreShape, elf: ScoreShape): Int {

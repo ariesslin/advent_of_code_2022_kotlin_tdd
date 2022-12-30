@@ -9,14 +9,26 @@ class RockPaperScissorsTest {
     )
 
     @Test
-    internal fun day02TestGetTotalScoreOfRockPaperScissorsCombat() {
+    internal fun day02TestGetTotalScoreOfRockPaperScissorsCombatIfXYZAsShape() {
         //arrange
         val combat = RockPaperScissors(rawCombatInput)
 
         //act
-        val totalScore = combat.calTotalScoreOfAllRounds()
+        val totalScore = combat.calTotalScoreOfAllRounds(XYZMode.Shape)
 
         //assert
         assertEquals(totalScore, 15)
+    }
+
+    @Test
+    internal fun day02TestGetTotalScoreOfRockPaperScissorsCombatIfXYZAsOutcome() {
+        //arrange
+        val combat = RockPaperScissors(rawCombatInput)
+
+        //act
+        val totalScore = combat.calTotalScoreOfAllRounds(XYZMode.Outcome)
+
+        //assert
+        assertEquals(totalScore, 12)
     }
 }
