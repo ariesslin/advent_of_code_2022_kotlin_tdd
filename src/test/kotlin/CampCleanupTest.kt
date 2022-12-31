@@ -17,9 +17,21 @@ class CampCleanupTest {
         val pairs = CampCleanup(assignments)
 
         //act
-        val numOfFullOverlapping = pairs.getNumOfFullyOverlapping()
+        val numOfFullOverlapping = pairs.getNumOfFullOverlapping()
 
         //assert
         assertEquals(numOfFullOverlapping, 2)
+    }
+
+    @Test
+    internal fun day04TestGetWhichPairsHaveAtLeastOneOverlapping() {
+        //arrange
+        val pairs = CampCleanup(assignments)
+
+        //act
+        val numOfAtLeastOneOverlapping = pairs.getNumOfAtLeastOneOverlapping()
+
+        //assert
+        assertEquals(numOfAtLeastOneOverlapping, 4)
     }
 }

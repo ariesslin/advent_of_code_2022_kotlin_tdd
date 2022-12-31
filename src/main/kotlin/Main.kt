@@ -44,6 +44,9 @@ fun day03() {
 fun day04() {
     val assignments = readFileAsLinesToListString("/day04_input.txt")
     val pairs = CampCleanup(assignments)
-    val numOfFullOverlapping = pairs.getNumOfFullyOverlapping()
+    val numOfFullOverlapping = pairs.getNumOfFullOverlapping()
     println("Num of fully overlapping pairs is $numOfFullOverlapping")
+
+    val numOfAtLeastOneOverlapping = pairs.getNumOfAtLeastOneOverlapping()
+    println("Num of at least one overlapping pairs is $numOfAtLeastOneOverlapping")
 }
