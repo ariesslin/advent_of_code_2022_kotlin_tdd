@@ -5,6 +5,7 @@ fun main(args: Array<String>) {
     day01()
     day02()
     day03()
+    day04()
 }
 
 fun day01() {
@@ -38,4 +39,11 @@ fun day03() {
     val groupBadgePriorities = rucksacks.getGroupBadgePriorities()
     val groupBadgePrioritiesSum = rucksacks.getPrioritiesSum(groupBadgePriorities)
     println("The sum of group badge priorities is $groupBadgePrioritiesSum")
+}
+
+fun day04() {
+    val assignments = readFileAsLinesToListString("/day04_input.txt")
+    val pairs = CampCleanup(assignments)
+    val numOfFullOverlapping = pairs.getNumOfFullyOverlapping()
+    println("Num of fully overlapping pairs is $numOfFullOverlapping")
 }
