@@ -1,5 +1,3 @@
-const val WINDOW_SIDE = 4
-
 class TuningTrouble(_rawDataStreamsInput: List<String>) {
     private val rawDataStreamsInput = _rawDataStreamsInput
 
@@ -12,13 +10,13 @@ class TuningTrouble(_rawDataStreamsInput: List<String>) {
         return true
     }
 
-    fun getFirstMarkerPosition(): List<Int> {
+    fun getFirstMarkerPosition(windowSize: Int): List<Int> {
         val positons = mutableListOf<Int>()
         for (i in rawDataStreamsInput) {
-            for (p in 0 until i.length - WINDOW_SIDE + 1) {
-                val candidate = i.slice(p until p + WINDOW_SIDE)
+            for (p in 0 until i.length - windowSize + 1) {
+                val candidate = i.slice(p until p + windowSize)
                 if (isValidMarker(candidate)) {
-                    positons.add(p + WINDOW_SIDE)
+                    positons.add(p + windowSize)
                     break
                 }
             }

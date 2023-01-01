@@ -66,6 +66,9 @@ fun day05() {
 fun day06() {
     val rawDataStreamsInput = readFileAsLinesToListString("/day06_input.txt")
     val dataStreams = TuningTrouble(rawDataStreamsInput)
-    val markerPos = dataStreams.getFirstMarkerPosition()
-    println("The first valid marker position is at $markerPos")
+    val markerPosWithWindowSizeIs4 = dataStreams.getFirstMarkerPosition(windowSize = 4)
+    println("The first valid marker position is at $markerPosWithWindowSizeIs4")
+
+    val markerPosWithWindowSizeIs14 = dataStreams.getFirstMarkerPosition(windowSize = 14)
+    println("The first valid marker position is at $markerPosWithWindowSizeIs14")
 }
