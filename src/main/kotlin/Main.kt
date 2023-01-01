@@ -7,6 +7,7 @@ fun main() {
     day03()
     day04()
     day05()
+    day06()
 }
 
 fun day01() {
@@ -60,4 +61,11 @@ fun day05() {
 
     val resultWithPowerfulCrate = supplyStacks.getSupplyStackMovesResultWithPowerfulCrate()
     println("With Powerful Crate, after all moves, the supply stack top is $resultWithPowerfulCrate")
+}
+
+fun day06() {
+    val rawDataStreamsInput = readFileAsLinesToListString("/day06_input.txt")
+    val dataStreams = TuningTrouble(rawDataStreamsInput)
+    val markerPos = dataStreams.getFirstMarkerPosition()
+    println("The first valid marker position is at $markerPos")
 }
