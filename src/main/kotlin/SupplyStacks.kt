@@ -2,6 +2,11 @@ const val MOVE = "move"
 const val FROM = "from"
 const val TO = "to"
 
+enum class Crate {
+    CrateMover9000,
+    CrateMover9001
+}
+
 class SupplyStacks(_stacksInput: List<String>) {
     private val stacksInput = _stacksInput
     private var stackBaseSize: Int = 0
@@ -49,14 +54,24 @@ class SupplyStacks(_stacksInput: List<String>) {
         return moves
     }
 
-    fun getSupplyStackMovesResult(): String {
+    private fun operateSupplyStackMoves(crate: Crate): String {
         val stacks = parseInitialStacksFromRawInput()
         val moves = parseMovesFromRawInput()
 
-        for (m in moves) {
-            for (i in 0 until m.first) {
-                val value = stacks[m.second - 1].removeLast()
-                stacks[m.third - 1].addLast(value)
+        if (crate == Crate.CrateMover9000) {
+            for (m in moves) {
+                for (i in 0 until m.first) {
+                    val value = stacks[m.second - 1].removeLast()
+                    stacks[m.third - 1].addLast(value)
+                }
+            }
+        } else {
+            for (m in moves) {
+                val values = stacks[m.second - 1].takeLast(m.first)
+                for (i in 0 until m.first) {
+                    stacks[m.second - 1].removeLast()
+                }
+                stacks[m.third - 1].addAll(values)
             }
         }
 
@@ -67,5 +82,13 @@ class SupplyStacks(_stacksInput: List<String>) {
         }
 
         return str
+    }
+
+    fun getSupplyStackMovesResult(): String {
+        return operateSupplyStackMoves(Crate.CrateMover9000)
+    }
+
+    fun getSupplyStackMovesResultWithPowerfulCrate(): String {
+        return operateSupplyStackMoves(Crate.CrateMover9001)
     }
 }

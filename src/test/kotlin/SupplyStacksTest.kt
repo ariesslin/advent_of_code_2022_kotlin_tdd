@@ -56,4 +56,16 @@ class SupplyStacksTest {
         //assert
         assertEquals(result, "CMZ")
     }
+
+    @Test
+    internal fun day05TestGetSupplyStackMovesResultWithPowerfulCrate() {
+        //arrange
+        val supplyStacks = SupplyStacks(stacksInput)
+
+        //act
+        val result = supplyStacks.getSupplyStackMovesResultWithPowerfulCrate()
+
+        //assert
+        assertEquals(result, "MCD")
+    }
 }

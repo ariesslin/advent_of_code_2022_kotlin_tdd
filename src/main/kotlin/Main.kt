@@ -57,4 +57,7 @@ fun day05() {
     val supplyStacks = SupplyStacks(stacksInput)
     val result = supplyStacks.getSupplyStackMovesResult()
     println("After all moves, the supply stack top is $result")
+
+    val resultWithPowerfulCrate = supplyStacks.getSupplyStackMovesResultWithPowerfulCrate()
+    println("With Powerful Crate, after all moves, the supply stack top is $resultWithPowerfulCrate")
 }
