@@ -1,11 +1,12 @@
 import utils.readFileAsLinesToListInt
 import utils.readFileAsLinesToListString
 
-fun main(args: Array<String>) {
+fun main() {
     day01()
     day02()
     day03()
     day04()
+    day05()
 }
 
 fun day01() {
@@ -49,4 +50,11 @@ fun day04() {
 
     val numOfAtLeastOneOverlapping = pairs.getNumOfAtLeastOneOverlapping()
     println("Num of at least one overlapping pairs is $numOfAtLeastOneOverlapping")
+}
+
+fun day05() {
+    val stacksInput = readFileAsLinesToListString("/day05_input.txt")
+    val supplyStacks = SupplyStacks(stacksInput)
+    val result = supplyStacks.getSupplyStackMovesResult()
+    println("After all moves, the supply stack top is $result")
 }
