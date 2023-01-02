@@ -80,4 +80,7 @@ fun day07() {
     val limit = 100000
     val dirSizeSum = spaceUsage.getDirSizeSum(limit)
     println("The sum of dir size under limit $limit is $dirSizeSum")
+
+    val dir = spaceUsage.getDirToDelete()
+    println("The dir to delete is " + dir.first + " size is " + dir.second)
 }

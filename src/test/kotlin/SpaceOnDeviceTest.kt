@@ -29,7 +29,7 @@ class SpaceOnDeviceTest {
     )
 
     @Test
-    internal fun day06TestParseInputToTree() {
+    internal fun day06TestGetDirSizeSum() {
         //arrange
         val spaceUsage = SpaceOnDevice(fileTreeRawInput)
 
@@ -38,5 +38,18 @@ class SpaceOnDeviceTest {
 
         //assert
         assertEquals(dirSizeSum, 95437)
+    }
+
+    @Test
+    internal fun day06TestGetWhichDirToDelete() {
+        //arrange
+        val spaceUsage = SpaceOnDevice(fileTreeRawInput)
+
+        //act
+        val dir = spaceUsage.getDirToDelete()
+
+        //assert
+        assertEquals(dir.first, "d")
+        assertEquals(dir.second, 24933642)
     }
 }
