@@ -8,6 +8,7 @@ fun main() {
     day04()
     day05()
     day06()
+    day07()
 }
 
 fun day01() {
@@ -71,4 +72,12 @@ fun day06() {
 
     val markerPosWithWindowSizeIs14 = dataStreams.getFirstMarkerPosition(windowSize = 14)
     println("The first valid marker position is at $markerPosWithWindowSizeIs14")
+}
+
+fun day07() {
+    val fileTreeRawInput = readFileAsLinesToListString("/day07_input.txt")
+    val spaceUsage = SpaceOnDevice(fileTreeRawInput)
+    val limit = 100000
+    val dirSizeSum = spaceUsage.getDirSizeSum(limit)
+    println("The sum of dir size under limit $limit is $dirSizeSum")
 }
