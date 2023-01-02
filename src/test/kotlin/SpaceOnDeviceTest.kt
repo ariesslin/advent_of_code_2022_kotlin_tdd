@@ -29,7 +29,7 @@ class SpaceOnDeviceTest {
     )
 
     @Test
-    internal fun day06TestGetDirSizeSum() {
+    internal fun day07TestGetDirSizeSum() {
         //arrange
         val spaceUsage = SpaceOnDevice(fileTreeRawInput)
 
@@ -41,7 +41,7 @@ class SpaceOnDeviceTest {
     }
 
     @Test
-    internal fun day06TestGetWhichDirToDelete() {
+    internal fun day07TestGetWhichDirToDelete() {
         //arrange
         val spaceUsage = SpaceOnDevice(fileTreeRawInput)
 

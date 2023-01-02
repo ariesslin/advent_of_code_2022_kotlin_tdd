@@ -9,6 +9,7 @@ fun main() {
     day05()
     day06()
     day07()
+    day08()
 }
 
 fun day01() {
@@ -83,4 +84,11 @@ fun day07() {
 
     val dir = spaceUsage.getDirToDelete()
     println("The dir to delete is " + dir.first + " size is " + dir.second)
+}
+
+fun day08() {
+    val forest = readFileAsLinesToListString("/day08_input.txt")
+    val trees = TopTree(forest)
+    val visibleTreeNum = trees.getVisibleTreeNum()
+    println("The visible tree number is $visibleTreeNum")
 }
