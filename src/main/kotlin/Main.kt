@@ -91,4 +91,7 @@ fun day08() {
     val trees = TopTree(forest)
     val visibleTreeNum = trees.getVisibleTreeNum()
     println("The visible tree number is $visibleTreeNum")
+
+    val highestSceneScore = trees.getHighestSceneScore()
+    println("The highest scene score is $highestSceneScore")
 }

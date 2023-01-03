@@ -21,4 +21,16 @@ class TopTreeTest {
         //assert
         assertEquals(visibleTreeNum, 21)
     }
+
+    @Test
+    internal fun day08TestGetHighestSceneScore() {
+        //arrange
+        val trees = TopTree(forest)
+
+        //act
+        val highestSceneScore = trees.getHighestSceneScore()
+
+        //assert
+        assertEquals(highestSceneScore, 8)
+    }
 }
